@@ -23,26 +23,78 @@ const cards = [
 	}
 	];
 
-const cardsInPlay = [];
+var cardsInPlay = [];
+var numberWins = 0;
+var numberGames = 0;
+var userScore = document.createElement('p');
+var cardsInPlaySuit = [];
+
+function updateScore() {
+	userScore.textContent = "You have won " + numberWins + " out of " + numberGames + " games.";
+	document.getElementById('score').appendChild(userScore);
+};
+
+function shuffle(cards) {
+	cards.sort(() => Math.random() - 0.5);
+}
+
+
+function createBoard() {
+	shuffle(cards);
+	for (var i = 0; i < 4; i++) {
+		var cardElement = document.createElement('img');
+		cardElement.setAttribute('src', 'images/back.png');
+		cardElement.setAttribute('data-id', i);
+		cardElement.addEventListener('click', flipCard);
+		document.getElementById('game-board').appendChild(cardElement);
+	}
+};
+
+
+function flipCard(cardElement) {
+	var cardId = this.getAttribute('data-id');
+	cardsInPlay.push(cards[cardId].rank);
+	cardsInPlaySuit.push(cards[cardId].suit);
+	this.setAttribute('src', cards[cardId].cardImage);
+	console.log("cardsInPlay=" + cardsInPlay);
+	console.log("cardsInPlaySuit=" + cardsInPlaySuit);
+
+	if (cardsInPlay[0] === cardsInPlay[1] && cardsInPlaySuit[0] === cardsInPlaySuit[1]) {
+		//alert("Card has already been flipped.");
+		cardsInPlay.pop();
+		cardsInPlaySuit.pop();
+	}
+	else if (cardsInPlay.length === 2) {
+		checkForMatch();
+	}
+};
+
+//Need fixing pressing the same card and have a match
+
 
 function checkForMatch() {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
 		alert("You found a match!");
+		numberWins++;
 	} else {
 		alert("Sorry, try again.");
 	}
-}
-
-function flipCard(cardId) {
-	console.log("User flipped " + cards[cardId].rank + " of " + cards[cardId].suit);
-	console.log(cards[cardId].cardImage);
-	cardsInPlay.push(cards[cardId].rank);
-
-	if (cardsInPlay.length === 2) {
-		checkForMatch();
-	}
-}
+	numberGames++;
+	updateScore();
+};
 
 
-flipCard(0);
-flipCard(2);
+function resetBoard(cardElement) {
+	document.getElementById('game-board').innerHTML = "";
+	createBoard();
+	cardsInPlay = [];
+	cardsInPlaySuit = [];
+};
+
+
+createBoard();
+updateScore();
+
+var resetButton = document.getElementById('resetGame');
+resetButton.addEventListener('click', resetBoard);
+
