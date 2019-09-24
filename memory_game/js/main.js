@@ -24,15 +24,19 @@ const cards = [
 	];
 
 var cardsInPlay = [];
+var cardsInPlaySuit = [];
+
 var numberWins = 0;
 var numberGames = 0;
+
 var userScore = document.createElement('p');
-var cardsInPlaySuit = [];
+document.getElementById('score').appendChild(userScore);
+
 
 function updateScore() {
 	userScore.textContent = "You have won " + numberWins + " out of " + numberGames + " games.";
-	document.getElementById('score').appendChild(userScore);
 };
+
 
 function shuffle(cards) {
 	cards.sort(() => Math.random() - 0.5);
@@ -51,13 +55,11 @@ function createBoard() {
 };
 
 
-function flipCard(cardElement) {
+function flipCard() {
 	var cardId = this.getAttribute('data-id');
 	cardsInPlay.push(cards[cardId].rank);
 	cardsInPlaySuit.push(cards[cardId].suit);
 	this.setAttribute('src', cards[cardId].cardImage);
-	console.log("cardsInPlay=" + cardsInPlay);
-	console.log("cardsInPlaySuit=" + cardsInPlaySuit);
 
 	if (cardsInPlay[0] === cardsInPlay[1] && cardsInPlaySuit[0] === cardsInPlaySuit[1]) {
 		//alert("Card has already been flipped.");
@@ -69,7 +71,6 @@ function flipCard(cardElement) {
 	}
 };
 
-//Need fixing pressing the same card and have a match
 
 
 function checkForMatch() {
