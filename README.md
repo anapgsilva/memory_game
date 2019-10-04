@@ -1,2 +1,2 @@
 # wdi-fundamentals-memorygame
-Memory Game - SEI pre-work project
+Memory Game - SEI pre-course work project
