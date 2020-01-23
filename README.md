@@ -1,6 +1,6 @@
 # Memory Game
 
-[Find it here.](https://anapgsilva.github.io/memory_game/memory_game)
+[Find it here.](https://anapgsilva.github.io/memory_game/)
 
 
 ### GAME INSTRUCTIONS
