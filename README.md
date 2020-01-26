@@ -6,9 +6,9 @@
 
 This project was built as part of the pre-course work for the Software Enginnering Immersive course at General Assembly Sydney.
 
-It is only a front-end program, written in HTML, CSS and Javascript - with DOM manipulation in Vanilla JS.
+It was only written in HTML, CSS and Javascript - with DOM manipulation in Vanilla JS.
 
-Really enjoyed doing it. In particular, coding all the game logic and the details of not letting the player pick more cards after winning or losing, as well as keeping the score.
+Really enjoyed doing it. In particular, coding all the game logic and the details of not letting the player pick more cards after winning or losing, as well as keeping track of the score.
 
 ### GAME INSTRUCTIONS
 
@@ -16,4 +16,4 @@ Concentration, also known as Match Match, Memory, Pelmanism, Shinkei-suijaku, Pe
 
 ### GAME PREVIEW
 
-<img src="https://anapgsilva.github.io/memory-game/images/memory_game.png" width="500">
+<img src="https://anapgsilva.github.io/memory-game/images/memory-game.png" width="500">
