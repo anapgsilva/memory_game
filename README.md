@@ -16,4 +16,4 @@ Concentration, also known as Match Match, Memory, Pelmanism, Shinkei-suijaku, Pe
 
 ### GAME PREVIEW
 
-<img src="https://anapgsilva.github.io/memory-game/images/memory-game.png" width="500">
+<img src="https://anapgsilva.github.io/memory_game/images/memory-game.png" width="500">
